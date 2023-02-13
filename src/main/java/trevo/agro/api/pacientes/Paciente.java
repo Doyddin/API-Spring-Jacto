@@ -1,38 +1,35 @@
-package trevo.agro.api.medico;
+package trevo.agro.api.pacientes;
 
 import jakarta.persistence.*;
 import lombok.*;
 import trevo.agro.api.endereco.Endereco;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
+@Table(name = "pacientes")
+@Entity(name = "Paciente")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Medico {
+public class Paciente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
     private String email;
-    private String crm;
+    private String cpf;
 
-    @Enumerated(EnumType.STRING)
-    private Especialidade especialidade;
 
     private String telefone;
 
     @Embedded
     private Endereco endereco;
 
-    public Medico(DadosCadastroMedico dados) {
+    public Paciente(DadosCadastroPaciente dados) {
         this.nome = dados.nome();
         this.email = dados.email();
-        this.crm = dados.crm();
+        this.cpf = dados.cpf();
         this.telefone = dados.telefone();
-        this.especialidade = dados.especialidade();
         this.endereco = new Endereco(dados.endereco());
     }
 }
