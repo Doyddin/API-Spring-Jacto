@@ -1,4 +1,4 @@
-package trevo.agro.api;
+package trevo.agro.Api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
