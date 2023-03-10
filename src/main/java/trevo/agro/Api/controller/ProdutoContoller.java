@@ -11,22 +11,27 @@ import trevo.agro.Api.produto.DadosCadastroProduto;
 import trevo.agro.Api.produto.DadosListagemProduto;
 import trevo.agro.Api.produto.Produto;
 import trevo.agro.Api.repository.ProdutoRepository;
+import trevo.agro.Api.service.ProdutoService;
+
+import java.io.IOException;
 
 
 public class ProdutoContoller {
 
     @Autowired
-    private ProdutoRepository repository;
+    private ProdutoService produtoService;
 
     @PostMapping
-    public void CadastrarProduto(@RequestBody @Valid DadosCadastroProduto produto)
+    public String cadastrarProduto(@RequestBody @Valid DadosCadastroProduto produto) throws IOException
     {
-        repository.save(new Produto(produto));
+        produtoService.cadastrarProduto(new Produto(produto));
+
+        return "Produto cadastrado com sucesso!";
     }
 
     @GetMapping
-    public Page<DadosListagemProduto> ListarProdutos(@PageableDefault(size = 10) Pageable paginacao)
+    public Page<DadosListagemProduto> listarProdutos(Pageable paginacao)
     {
-        return repository.findAll(paginacao).map(DadosListagemProduto::new);
+        return produtoService.listarProdutos(paginacao);
     }
 }

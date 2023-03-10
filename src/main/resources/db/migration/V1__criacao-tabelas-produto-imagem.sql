@@ -8,9 +8,9 @@ dataCadastro date not null,
 status varchar(40) not null
 );
 
-create table imagems(
+create table imagens(
 id bigint not null primary key auto_increment,
 nome varchar(80) not null,
 tipo varchar(60) not null,
-dadosImagem longtext not null
+dados_imagem mediumblob not null
 );
