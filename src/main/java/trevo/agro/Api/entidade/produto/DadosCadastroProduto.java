@@ -1,4 +1,4 @@
-package trevo.agro.Api.produto;
+package trevo.agro.Api.entidade.produto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

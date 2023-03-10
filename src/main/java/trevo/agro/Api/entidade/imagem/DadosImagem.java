@@ -1,4 +1,4 @@
-package trevo.agro.Api.imagem;
+package trevo.agro.Api.entidade.imagem;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

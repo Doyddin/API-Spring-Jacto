@@ -1,4 +1,4 @@
-package trevo.agro.Api.produto;
+package trevo.agro.Api.entidade.produto;
 
 
 import jakarta.persistence.*;
@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 @Table(name = "produtos")
 @Entity(name = "Produto")

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import trevo.agro.Api.service.utils.ImagemUtils;
-import trevo.agro.Api.imagem.DadosImagem;
+import trevo.agro.Api.entidade.imagem.DadosImagem;
 import trevo.agro.Api.repository.ImagemRepository;
 
 import java.io.IOException;

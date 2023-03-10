@@ -1,4 +1,4 @@
-package trevo.agro.Api.produto;
+package trevo.agro.Api.entidade.produto;
 
 public record DadosListagemProduto(Long id, String nome, String tipoCultura, String tamanhoArea, String listaFotos,
                                    String dataCadastro, String status) {
