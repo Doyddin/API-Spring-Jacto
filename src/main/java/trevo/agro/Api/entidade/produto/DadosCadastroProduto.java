@@ -23,10 +23,8 @@ public record DadosCadastroProduto(
         @DateTimeFormat
         String dataCadastro,
 
-        @NotBlank
-        String status
-
-
+        @NotNull
+        int status
 
         ) {
 

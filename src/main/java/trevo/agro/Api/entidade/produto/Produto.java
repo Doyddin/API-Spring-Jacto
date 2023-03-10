@@ -24,7 +24,7 @@ public class Produto {
     private String listaFotos;
     private String dataCadastro;
     private String descProduto;
-    private String status;
+    private int status;
 
 
     public Produto(DadosCadastroProduto produto) {
