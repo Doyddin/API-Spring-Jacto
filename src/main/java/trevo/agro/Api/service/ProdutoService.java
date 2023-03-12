@@ -10,6 +10,8 @@ import trevo.agro.Api.entidade.produto.DadosListagemProduto;
 import trevo.agro.Api.entidade.produto.Produto;
 import trevo.agro.Api.repository.ProdutoRepository;
 
+import java.util.Optional;
+
 @Service
 public class ProdutoService {
 
@@ -23,5 +25,9 @@ public class ProdutoService {
 
     public Page<DadosListagemProduto> listarProdutos(@PageableDefault(size = 10) Pageable paginacao){
         return repository.findAll(paginacao).map(DadosListagemProduto::new);
+    }
+
+    public Optional<Produto> findProduto(Long id_produto){
+        return repository.findById(id_produto);
     }
 }

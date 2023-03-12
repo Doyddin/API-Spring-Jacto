@@ -17,11 +17,12 @@ public class ImagemService {
     @Autowired
     private ImagemRepository repository;
 
-    public String uploadImagem(MultipartFile imagem) throws IOException {
+    public String uploadImagem(MultipartFile imagem, Long idProduto) throws IOException {
         DadosImagem dadosImagem = repository.save(DadosImagem.builder()
                 .nome(imagem.getOriginalFilename())
                 .tipo(imagem.getContentType())
-                .dadosImagem(ImagemUtils.compressImage(imagem.getBytes())).build());
+                .dadosImagem(ImagemUtils.compressImage(imagem.getBytes()))
+                .idProduto(idProduto).build());
 
         if(dadosImagem!=null) {
             return "Arquivo salvo com sucesso : "+ imagem.getOriginalFilename();
@@ -30,8 +31,8 @@ public class ImagemService {
         return null;
     }
 
-    public byte[] downloadImagem(String nomeImagem){
-        Optional<DadosImagem> dbDadosImagem = repository.findByNome(nomeImagem);
+    public byte[] downloadImagem(Long idProduto){
+        Optional<DadosImagem> dbDadosImagem = repository.findByIdProduto(idProduto);
         byte[] imagem = ImagemUtils.decompressImage(dbDadosImagem.get().getDadosImagem());
         return imagem;
     }

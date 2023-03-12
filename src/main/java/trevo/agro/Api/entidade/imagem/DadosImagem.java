@@ -18,6 +18,7 @@ public class DadosImagem {
 
     private String nome;
     private String tipo;
+    private Long idProduto;
 
     @Lob
     @Column(name = "dadosImagem")

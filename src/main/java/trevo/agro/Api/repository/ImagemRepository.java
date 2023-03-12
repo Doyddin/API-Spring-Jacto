@@ -9,4 +9,8 @@ public interface ImagemRepository extends JpaRepository<DadosImagem, Long> {
 
 
     Optional<DadosImagem> findByNome(String nomeImagem);
+
+    Optional<DadosImagem> findById(Long idImagem);
+
+    Optional<DadosImagem> findByIdProduto(Long idProduto);
 }

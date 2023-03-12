@@ -12,8 +12,10 @@ import trevo.agro.Api.entidade.produto.Produto;
 import trevo.agro.Api.service.ProdutoService;
 
 import java.io.IOException;
+import java.util.Optional;
 
-
+@RestController
+@RequestMapping("/produto")
 public class ProdutoContoller {
 
     @Autowired
@@ -31,5 +33,11 @@ public class ProdutoContoller {
     public Page<DadosListagemProduto> listarProdutos(Pageable paginacao)
     {
         return produtoService.listarProdutos(paginacao);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Produto> findProduto(@PathVariable Long id_produto)
+    {
+        return produtoService.findProduto(id_produto);
     }
 }

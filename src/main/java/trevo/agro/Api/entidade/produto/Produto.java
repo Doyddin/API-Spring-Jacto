@@ -6,8 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import trevo.agro.Api.entidade.imagem.DadosImagem;
 
-@Table(name = "produtos")
+@Table(name = "produto")
 @Entity(name = "Produto")
 @Getter
 @NoArgsConstructor
@@ -21,7 +22,6 @@ public class Produto {
     private String nome;
     private String tipoCultura;
     private String tamanhoArea;
-    private String listaFotos;
     private String dataCadastro;
     private String descProduto;
     private int status;

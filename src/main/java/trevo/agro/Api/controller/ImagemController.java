@@ -21,15 +21,16 @@ public class ImagemController {
     }
 
     @PostMapping
-    public ResponseEntity<?> uploadImagem(@RequestParam("imagem") MultipartFile imagem) throws IOException {
-        String uploadImagem = imagemService.uploadImagem(imagem);
+    public ResponseEntity<?> uploadImagem(@RequestParam("imagem") MultipartFile imagem,
+                                          @RequestParam("id_produto") Long idProduto) throws IOException {
+        String uploadImagem = imagemService.uploadImagem(imagem, idProduto);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(uploadImagem);
     }
 
-    @GetMapping("/{nomeImagem}")
-    public ResponseEntity<?> downloadImagem(@PathVariable String nomeImagem){
-        byte[] dadosImagem = imagemService.downloadImagem(nomeImagem);
+    @GetMapping("/{idProduto}")
+    public ResponseEntity<?> downloadImagem(@PathVariable Long idProduto){
+        byte[] dadosImagem = imagemService.downloadImagem(idProduto);
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.valueOf("image/png"))
                 .body(dadosImagem);
