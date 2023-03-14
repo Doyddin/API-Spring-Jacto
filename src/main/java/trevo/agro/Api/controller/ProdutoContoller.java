@@ -29,15 +29,17 @@ public class ProdutoContoller {
         return "Produto cadastrado com sucesso!";
     }
 
+    // Listagem de todos os produtos cadastrados
     @GetMapping
     public Page<DadosListagemProduto> listarProdutos(Pageable paginacao)
     {
         return produtoService.listarProdutos(paginacao);
     }
 
-    @GetMapping("/{id}")
-    public Optional<Produto> findProduto(@PathVariable Long id_produto)
+    // Listagem de um produto específico
+    @GetMapping("/{idProduto}")
+    public Produto findProduto(@PathVariable Long idProduto)
     {
-        return produtoService.findProduto(id_produto);
+        return produtoService.findProduto(idProduto);
     }
 }

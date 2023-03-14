@@ -4,11 +4,13 @@ package trevo.agro.Api.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import trevo.agro.Api.entidade.imagem.DadosListagemImagem;
 import trevo.agro.Api.service.utils.ImagemUtils;
 import trevo.agro.Api.entidade.imagem.DadosImagem;
 import trevo.agro.Api.repository.ImagemRepository;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,9 +33,12 @@ public class ImagemService {
         return null;
     }
 
-    public byte[] downloadImagem(Long idProduto){
-        Optional<DadosImagem> dbDadosImagem = repository.findByIdProduto(idProduto);
-        byte[] imagem = ImagemUtils.decompressImage(dbDadosImagem.get().getDadosImagem());
-        return imagem;
+    public byte[] downloadImagem(Long id){
+        Optional<DadosImagem> dbDadosImagem = repository.findById(id);
+        return ImagemUtils.decompressImage(dbDadosImagem.get().getDadosImagem());
+    }
+
+    public List<DadosListagemImagem> getImagens(Long idProduto){
+        return repository.findAllByIdProduto(idProduto);
     }
 }

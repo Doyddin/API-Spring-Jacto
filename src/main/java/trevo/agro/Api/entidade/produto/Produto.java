@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import trevo.agro.Api.entidade.imagem.DadosImagem;
+
+import java.util.List;
 
 @Table(name = "produto")
 @Entity(name = "Produto")

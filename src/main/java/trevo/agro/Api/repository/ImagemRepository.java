@@ -2,7 +2,9 @@ package trevo.agro.Api.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import trevo.agro.Api.entidade.imagem.DadosImagem;
+import trevo.agro.Api.entidade.imagem.DadosListagemImagem;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ImagemRepository extends JpaRepository<DadosImagem, Long> {
@@ -12,5 +14,5 @@ public interface ImagemRepository extends JpaRepository<DadosImagem, Long> {
 
     Optional<DadosImagem> findById(Long idImagem);
 
-    Optional<DadosImagem> findByIdProduto(Long idProduto);
+    List<DadosListagemImagem> findAllByIdProduto(Long idProduto);
 }

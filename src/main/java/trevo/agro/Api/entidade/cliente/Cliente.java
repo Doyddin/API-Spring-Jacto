@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "cliente")
+@Table(name = "clientes")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -23,5 +23,11 @@ public class Cliente {
 
     private String telefone;
 
-    private String produtoInteresse;
+    public String produtoInteresse;
+
+    public Cliente(DadosCadastroCliente cliente) {
+        this.nome = cliente.nome();
+        this.email = cliente.email();
+        this.telefone = cliente.telefone();
+    }
 }
