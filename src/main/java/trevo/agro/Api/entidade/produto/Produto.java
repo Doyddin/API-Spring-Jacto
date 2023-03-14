@@ -2,16 +2,13 @@ package trevo.agro.Api.entidade.produto;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.List;
 
 @Table(name = "produto")
 @Entity(name = "Produto")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -32,7 +29,6 @@ public class Produto {
         this.nome = produto.nome();
         this.tipoCultura = produto.tipoCultura();
         this.tamanhoArea = produto.tamanhoArea();
-        this.dataCadastro = produto.dataCadastro();
         this.descProduto = produto.descProduto();
     }
 }

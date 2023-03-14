@@ -11,6 +11,8 @@ import trevo.agro.Api.entidade.produto.DadosListagemProduto;
 import trevo.agro.Api.entidade.produto.Produto;
 import trevo.agro.Api.repository.ImagemRepository;
 import trevo.agro.Api.repository.ProdutoRepository;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 import java.util.List;
 
@@ -23,9 +25,15 @@ public class ProdutoService {
     @Autowired
     private ImagemRepository imagensRepository;
 
-    public void cadastrarProduto(DadosCadastroProduto produto)
+    public void cadastrarProduto(DadosCadastroProduto dadosCadastroProduto)
     {
-        repository.save(new Produto(produto));
+        //Define a data de hoje para salvar no banco sem erro
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+
+        Produto produto = new Produto(dadosCadastroProduto);
+        produto.setDataCadastro(dtf.format(now));
+        repository.save(produto);
     }
 
     public Page<DadosListagemProduto> listarProdutos(@PageableDefault(size = 10) Pageable paginacao){

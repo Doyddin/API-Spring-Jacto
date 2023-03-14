@@ -20,10 +20,6 @@ public record DadosCadastroProduto(
         String descProduto,
 
         @NotNull
-        @DateTimeFormat
-        String dataCadastro,
-
-        @NotNull
         int status
 
         ) {

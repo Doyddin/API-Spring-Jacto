@@ -1,0 +1,1 @@
+alter table produto modify column data_cadastro date not null;
