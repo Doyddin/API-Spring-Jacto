@@ -4,9 +4,13 @@ import java.io.ByteArrayOutputStream;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
+
+// Código De total autoria de "JavaTechie"
+// Video de referencia: https://www.youtube.com/watch?v=XUL60-Ke-L8&list=PLpf6X3ZVAaxWznzKZ6A7j7jSFzlfcVh9T&index=6
 public class ImagemUtils {
 
 
+    // Esta função comprime a imagem em binário pra salvar no banco de dados
     public static byte[] compressImage(byte[] data) {
         Deflater deflater = new Deflater();
         deflater.setLevel(Deflater.BEST_COMPRESSION);
@@ -27,7 +31,7 @@ public class ImagemUtils {
     }
 
 
-
+    // Esta função descomprime a imagem para poder visualizar ela
     public static byte[] decompressImage(byte[] data) {
         Inflater inflater = new Inflater();
         inflater.setInput(data);
