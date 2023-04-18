@@ -45,4 +45,15 @@ public class ProdutoService {
         List<DadosListagemImagem> imagens = imagensRepository.findAllByIdProduto(idProduto);
         return produto;
     }
+
+    public void editarProduto(Long idProduto, DadosCadastroProduto novoProduto){
+        Produto produtoEditado = new Produto(novoProduto);
+        produtoEditado.setId(idProduto);
+
+        repository.save(produtoEditado);
+    }
+
+    public void excluirProduto(Long idProduto){
+        repository.deleteById(idProduto);
+    }
 }

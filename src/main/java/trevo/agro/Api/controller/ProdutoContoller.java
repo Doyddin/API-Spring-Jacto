@@ -5,6 +5,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trevo.agro.Api.entidade.produto.DadosCadastroProduto;
 import trevo.agro.Api.entidade.produto.DadosListagemProduto;
@@ -41,5 +43,20 @@ public class ProdutoContoller {
     public Produto findProduto(@PathVariable Long idProduto)
     {
         return produtoService.findProduto(idProduto);
+    }
+
+    @PutMapping("/{idProduto}")
+    public ResponseEntity<?> editarProduto(@PathVariable Long idProduto, @RequestBody @Valid DadosCadastroProduto novoProduto){
+
+        produtoService.editarProduto(idProduto, novoProduto);
+
+        return ResponseEntity.status(HttpStatus.OK).body("Produto atualizado com sucesso.");
+    }
+
+    @DeleteMapping("/{idProduto}")
+    public ResponseEntity<?> excluirProduto(@PathVariable Long idProduto){
+        produtoService.excluirProduto(idProduto);
+
+        return ResponseEntity.status(HttpStatus.OK).body("Produto excluido com sucesso.");
     }
 }

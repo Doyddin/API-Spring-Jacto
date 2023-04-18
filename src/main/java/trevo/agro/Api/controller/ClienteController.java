@@ -18,7 +18,7 @@ public class ClienteController {
 
 
     //Lista todos os clientes cadastrados no banco de dados
-    @GetMapping()
+    @GetMapping
     public List<Cliente> listarClientes(){
         return service.listarClientes();
     }

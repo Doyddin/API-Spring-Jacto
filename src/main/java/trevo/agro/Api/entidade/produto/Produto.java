@@ -24,11 +24,16 @@ public class Produto {
     private String descProduto;
     private int status;
 
+    @Enumerated
+    private Categoria categoria;
+
 
     public Produto(DadosCadastroProduto produto) {
         this.nome = produto.nome();
         this.tipoCultura = produto.tipoCultura();
         this.tamanhoArea = produto.tamanhoArea();
         this.descProduto = produto.descProduto();
+        this.categoria = produto.categoria();
     }
+
 }

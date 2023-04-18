@@ -20,7 +20,10 @@ public record DadosCadastroProduto(
         String descProduto,
 
         @NotNull
-        int status
+        int status,
+
+        @NotNull
+        Categoria categoria
 
         ) {
 
